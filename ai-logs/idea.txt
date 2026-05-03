@@ -1,0 +1,10 @@
+Project: Scribo AI
+
+Goal:
+Build an AI-powered meeting & lecture note summarizer.
+
+Features:
+- Input text
+- Generate summary
+- Extract key points
+- Action items
