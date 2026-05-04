@@ -1,0 +1,199 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Scribo AI Design System
+ * - Soft pink page bg, pistachio green accent, white cards, charcoal CTA
+ * - Nunito for headings, DM Sans for body
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-pink-tint: var(--pink-tint);
+  --color-green-tint: var(--green-tint);
+  --color-charcoal: var(--charcoal);
+  --color-pistachio: var(--pistachio);
+  --color-pistachio-soft: var(--pistachio-soft);
+  --color-muted-2: var(--muted-2);
+
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Nunito", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Brand */
+  --pink-tint: oklch(0.969 0.018 0);          /* #FFF0F5 */
+  --green-tint: oklch(0.975 0.025 145);       /* #F0FAF2 */
+  --pistachio: oklch(0.789 0.114 145);        /* #8EC99A */
+  --pistachio-soft: oklch(0.92 0.06 145);
+  --charcoal: oklch(0.21 0 0);                /* #1C1C1C */
+  --muted-2: oklch(0.66 0 0);                 /* #9A9A9A */
+
+  /* Semantic */
+  --background: oklch(0.969 0.018 0);         /* soft pink page bg */
+  --foreground: oklch(0.21 0 0);              /* charcoal */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0 0);
+  --primary: oklch(0.21 0 0);                 /* charcoal CTAs */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(1 0 0);
+  --secondary-foreground: oklch(0.21 0 0);
+  --muted: oklch(0.96 0.005 0);
+  --muted-foreground: oklch(0.4 0 0);         /* #4A4A4A body */
+  --accent: oklch(0.789 0.114 145);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.93 0.012 350);            /* #F0E8EC */
+  --input: oklch(0.93 0.012 350);
+  --ring: oklch(0.789 0.114 145);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-muted-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-charcoal);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--charcoal);
+    color: #fff;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: scale(1.03); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #fff;
+    color: var(--charcoal);
+    border: 1.5px solid var(--charcoal);
+    border-radius: 9999px;
+    padding: 12.5px 30px;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    transition: transform 0.2s ease;
+  }
+  .btn-secondary:hover { transform: scale(1.03); }
+
+  .btn-green {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--pistachio);
+    color: #fff;
+    border-radius: 9999px;
+    padding: 16px 36px;
+    font-weight: 700;
+    font-family: var(--font-sans);
+    transition: transform 0.2s ease;
+    box-shadow: 0 8px 24px rgba(142,201,154,0.4);
+  }
+  .btn-green:hover { transform: scale(1.03); }
+
+  .pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--pistachio);
+    color: #fff;
+    border-radius: 9999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--font-sans);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+  .pulse-dot { animation: pulse-dot 1.4s ease-in-out infinite; }
+
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.4); }
+    50% { transform: scaleY(1); }
+  }
+  .wave-bar { animation: wave 1.2s ease-in-out infinite; transform-origin: center; }
+}
