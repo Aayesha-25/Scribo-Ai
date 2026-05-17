@@ -1,6 +1,6 @@
 # Logs
 .env
-*.json
+ai-logs/*.json
 logs
 *.log
 npm-debug.log*
