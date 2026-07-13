@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Mic, FileText, Sparkles, Search, Download, Languages, MessageSquare, ShieldCheck, Lock, Users, Database, Server, Bookmark, FolderOpen, BarChart3, MessageCircle } from "lucide-react";
 import { Navbar } from "@/components/scribo/Navbar";
@@ -9,6 +9,9 @@ import { useReveal } from "@/hooks/use-reveal";
 import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
+  beforeLoad: () => {
+    throw redirect({ to: "/app" });
+  },
   head: () => ({
     meta: [
       { title: "Scribo AI — Never miss a word from any meeting" },
